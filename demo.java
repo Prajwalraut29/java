@@ -3,41 +3,40 @@
 public class demo {
 
   public static void main(String[] args) {
-      Splender sp = new Splender();
-
-      // sp.Start(); // parent class method
-      // sp.SelfStart(); // child class method
-        Vehicle v = new Vehicle();
-        // v.Start(); // parent class method
-        //  v.SelfStart(); // child class method not accessible
+        Car car = new ElectricCar();
+        car.start();
+        car.accelarate();
       
   }
 
 }
 
- class Vehicle  {
-    public void Start(){
-      System.out.println("Vehicle is starting");
-    }
-}
+abstract class Car {
+void start() {
+    System.out.println("car is starting");
+  }
+  abstract void accelarate();
 
-class Splender extends Vehicle {
-
-    public void SelfStart(){
-      System.out.println("Splender is self starting");
-    }
+//  abstract void breake();
 }
 
 
+class FuelCar extends Car {
+  
+  @Override
+  void accelarate() {
+    System.out.println("fuel car is accelarating");
+  }
+
+}
 
 
-
-
-
-
-
-
-
+class ElectricCar extends Car {
+  @Override
+     void accelarate() {
+    System.out.println("electric car is accelarating");
+  }
+}
 
 
 
